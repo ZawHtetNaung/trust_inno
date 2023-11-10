@@ -1,0 +1,19 @@
+.section{
+    padding: 0 24px;
+    .title{
+        font-family: titleFont;
+        font-weight: 900;
+        font-size: 3em;
+        letter-spacing: 1.15px;
+        color: $red;
+        margin-bottom: .5em;
+    }
+    .hero_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+}

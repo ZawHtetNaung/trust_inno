@@ -1,0 +1,38 @@
+@font-face {
+    font-family: titleFont;
+    src: url('./assets/fonts/bomberescortcondital.woff');
+}
+
+@font-face {
+    font-family: regularFont;
+    src: url('./assets/fonts/gothici.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: regularFont;
+}
+
+.ant-steps .ant-steps-item-icon,.ant-steps.ant-steps-vertical >.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail::after {
+    background-color: #ffffff!important;
+    border-color: #FFFFFF!important;
+}
+.ant-steps-item-title{
+    color: #FFFFFF!important;
+}
+.ant-steps-icon{
+    color: #000000!important;
+}
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after{
+    background-color: #FFFFFF!important;
+}
+
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title{
+    color: #FFFFFF!important;
+}
+
+.ant-steps-item-description{
+    color: #FFFFFF!important;
+}

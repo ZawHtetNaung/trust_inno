@@ -1,0 +1,56 @@
+.main_nav{
+    min-height: 20px;
+    padding: 20px 24px;
+    position: fixed;
+    width: 100%;
+    background-color: $red;
+    z-index: 1000;
+    .title{
+        font-family: titleFont;
+        color: white;
+        margin: 0 1rem;
+        font-size: 2rem;
+    }
+    .navigation_links{
+        height: 100%;
+        justify-content: end;
+        align-items: center;
+        font-family: titleFont;
+        color: #ebebeb;
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+        a{
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-block;
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -0.25rem;
+                left: 0;
+                background-color: #ffffff;
+                transform-origin: bottom right;
+                transition: transform 0.25s ease-out;
+                transform: scaleX(0);
+            }
+            &:hover::after{
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+        }
+        .hire_us_btn{
+            background-color: white;
+            color: $red;
+            &:hover{
+                background-color: white;
+                color: $red;
+                border-color: $red;
+            }
+        }
+    }
+}
