@@ -1,56 +1,158 @@
-.main_nav{
+.main_nav {
+
+  .hamburger_menu {
+      display: none;
+      cursor: pointer;
+      margin-top: 1rem;
+
+      div {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      &.open {
+        div {
+          &:first-child {
+            transform: rotate(-45deg) translate(-5px, 6px);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:last-child {
+            transform: rotate(45deg) translate(-5px, -6px);
+          }
+        }
+      }
+    }
+
+    .mobile_menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-top: 1rem;
+  
+      &.active {
+        display: flex;
+      }
+  
+      a {
+        padding: 1rem 0;
+      }
+    }
+
     min-height: 20px;
     padding: 20px 24px;
     position: fixed;
     width: 100%;
     background-color: $red;
     z-index: 1000;
-    .title{
-        font-family: titleFont;
+  
+    .title {
+      font-family: titleFont;
+      color: white;
+      margin: 0 1rem;
+      font-size: 2rem;
+    }
+  
+    .navigation_links {
+      height: 100%;
+      justify-content: end;
+      align-items: center;
+      font-family: titleFont;
+      color: #ebebeb;
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+  
+      a {
         color: white;
-        margin: 0 1rem;
-        font-size: 2rem;
-    }
-    .navigation_links{
-        height: 100%;
-        justify-content: end;
-        align-items: center;
-        font-family: titleFont;
-        color: #ebebeb;
-        display: flex;
-        list-style: none;
-        gap: 1rem;
-        a{
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: inline-block;
-            position: relative;
-            &::after{
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                bottom: -0.25rem;
-                left: 0;
-                background-color: #ffffff;
-                transform-origin: bottom right;
-                transition: transform 0.25s ease-out;
-                transform: scaleX(0);
-            }
-            &:hover::after{
-                transform: scaleX(1);
-                transform-origin: bottom left;
-            }
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: inline-block;
+        position: relative;
+  
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: -0.25rem;
+          left: 0;
+          background-color: #ffffff;
+          transform-origin: bottom right;
+          transition: transform 0.25s ease-out;
+          transform: scaleX(0);
         }
-        .hire_us_btn{
-            background-color: white;
-            color: $red;
-            &:hover{
-                background-color: white;
-                color: $red;
-                border-color: $red;
-            }
+  
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
         }
+      }
+  
+      .hire_us_btn {
+        background-color: white;
+        color: $red;
+  
+        &:hover {
+          background-color: white;
+          color: $red;
+          border-color: $red;
+        }
+      }
+  
+      // Media query for responsiveness
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        a {
+          font-size: 1.2rem;
+  
+          &::after {
+            display: none;
+          }
+        }
+  
+        .hire_us_btn {
+          margin-top: 1rem;
+        }
+  
+        // Hamburger menu styles
+        .hamburger_menu {
+          display: block;
+          // cursor: pointer;
+          // margin-top: 1rem;
+  
+          // div {
+          //   width: 30px;
+          //   height: 3px;
+          //   background-color: white;
+          //   margin: 6px 0;
+          //   transition: 0.4s;
+          // }
+        }
+  
+        .mobile-menu {
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+          margin-top: 1rem;
+  
+          &.active {
+            display: flex;
+          }
+  
+          a {
+            padding: 1rem 0;
+          }
+        }
+      }
     }
-}
+  }
+  

@@ -7,6 +7,10 @@ import { Link } from 'react-scroll';
 
 const Nav = () => {
   const navHeight = useNavHeight();
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
   const handleHireUs = () => {
     window.location.href = 'mailto:mail@example.org';
   };
@@ -31,7 +35,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className={classes.main_nav} id="navbar">
+      <nav className={`${classes.main_nav} ${isMobileMenuOpen ? classes.mobile_menu_open : ''}`} id="navbar">
         <Row justify={'space-between'}>
           <Col md={12}>
             <Row gutter={[16, 16]} justify={'start'} align={'middle'}>
@@ -40,39 +44,46 @@ const Nav = () => {
             </Row>
           </Col>
           <Col md={12}>
-            <ul className={classes.navigation_links}>
-              <li>
-                <Link to="main" smooth={true} duration={500}>
-                  Main
-                </Link>
-              </li>
-              <li>
-                <Link to="services" smooth={true} duration={500}>
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="process" smooth={true} duration={500}>
-                  Process
-                </Link>
-              </li>
-              <li>
-                <Link to="about" smooth={true} duration={500}>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Button
-                  shape={'round'}
-                  size="large"
-                  className={classes.hire_us_btn}
-                  type="primary"
-                  onClick={handleHireUs}
-                >
-                  Hire Us
-                </Button>
-              </li>
-            </ul>
+            <div className={`${classes.hamburger_menu} ${isMobileMenuOpen ? classes.open : ''}`} onClick={toggleMobileMenu}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div className={`${classes.mobile_menu} ${isMobileMenuOpen ? classes.active : ''}`}>
+              <ul className={classes.navigation_links}>
+                <li>
+                  <Link to="main" smooth={true} duration={500}>
+                    Main
+                  </Link>
+                </li>
+                <li>
+                  <Link to="services" smooth={true} duration={500}>
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link to="process" smooth={true} duration={500}>
+                    Process
+                  </Link>
+                </li>
+                <li>
+                  <Link to="about" smooth={true} duration={500}>
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Button
+                    shape={'round'}
+                    size="large"
+                    className={classes.hire_us_btn}
+                    type="primary"
+                    onClick={handleHireUs}
+                  >
+                    Hire Us
+                  </Button>
+                </li>
+              </ul>
+            </div>
           </Col>
         </Row>
       </nav>
